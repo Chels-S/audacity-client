@@ -1,23 +1,58 @@
-import logo from './logo.svg';
+import React, {useEffect, useState} from 'react';
 import './App.css';
+import Auth from './components/auth/Auth';
+import About from './pages/About';
+import Sitebar from './components/nav/Navbar';
+import Sidebar from './components/nav/Sidebar';
+import {BrowserRouter as Router} from 'react-router-dom';
+import ToggleComponent from './components/ToggleComponent';
+
 
 function App() {
+
+  // return (
+  //   <div>
+  //     <ToggleComponent />
+  //   </div>
+  // )
+
+  const [sessionToken, setSessionToken] = useState('')
+
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      setSessionToken(localStorage.getItem('token'));
+    };
+  });
+
+  const updateToken = newToken => {
+    localStorage.setItem('token', newToken);
+    setSessionToken(newToken);
+    console.log(sessionToken)
+  }
+
+  const clearToken = () => {
+    localStorage.clear();
+    setSessionToken(undefined)
+  }
+
+  const protectedViews = () => {
+    return sessionToken === localStorage.getItem('token') ?
+    <About sessionToken = {sessionToken} /> :
+    <Auth updateToken={updateToken} />
+  }
+
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <ToggleComponent /> */}
+      {/* <Router>
+        <Sidebar />
+      </Router> */}
+      <Sitebar clickLogout={clearToken} />
+      <h1>Audacity Guides!</h1>
+      {protectedViews()}
     </div>
   );
 }
