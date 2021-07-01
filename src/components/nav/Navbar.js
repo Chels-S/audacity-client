@@ -22,7 +22,7 @@ const Sitebar = (props) => {
 
     return (
         <Navbar color="faded" light expand="md">
-            <NavbarBrand href="/">Audacity Guides</NavbarBrand>
+            <NavbarBrand href="/"><img src={logoutGoob} /></NavbarBrand>
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
                 <Nav className="ml-auto" navbar>

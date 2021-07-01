@@ -51,7 +51,7 @@ function App() {
         <Sidebar />
       </Router> */}
       <Sitebar clickLogout={clearToken} />
-      <h1>Audacity Guides!</h1>
+      {/* <h1>Audacity Guides!</h1> */}
       {protectedViews()}
     </div>
   );

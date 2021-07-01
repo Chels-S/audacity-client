@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import logoutGoob from '../assets/logoutGoob.png';
+import loginGoob from '../assets/loginGoob.png';
 import styled, { keyframes } from 'styled-components';
 
 
@@ -11,8 +11,6 @@ const move = keyframes `
     opacity: 1;
 }
 `;
-
-
 const BackgroundBox = styled.div`
 background-color: #beeefb;
 height: 50vh;
@@ -61,7 +59,6 @@ border: 1px solid #053271;
     transition: all 1s;
 }
 `;
-
 const BoxOne = styled.div`
 background-color: #f1fdcd;
 width: 50%;
@@ -97,7 +94,6 @@ transition: transform 1s;
     border-left: 4px solid #053271;
 }
 `;
-
 const BoxTwo = styled.div`
 background-color: #053271;
 width: 45%;
@@ -115,7 +111,6 @@ border-radius: ${props => props.clicked ? "23px 0 0 23px": "0 23px 23px 0"};
 
 
 `;
-
 const Form = styled.form`
 color: #1b1b1b;
 display: flex;
@@ -126,7 +121,6 @@ height: 100%;
 padding: 0 4rem;
 // z-index: 100;
 `;
-
 const Input = styled.input`
 background-color: #fff;
 border: none;
@@ -144,7 +138,6 @@ width: 100%;
 
 }
 `;
-
 const Button = styled.button `
 border-radius: 3px;
 padding: 1rem 3.5rem;
@@ -173,19 +166,16 @@ box-shadow: 0 7px #999;
 }
 
 `
-
 const Title = styled.h1 `
 font-size: 3.5rem;
 margin-bottom: 2rem;
 `
-
 const Link = styled.a `
 text-decoration: none;
 color #333;
 font-size: 1.4rem;
 maring: 1rem 0;
 `
-
 const ButtonAnimate = styled.button `
 position: absolute;
 z-index: 1000;
@@ -276,7 +266,7 @@ const ToggleComponent = (props) => {
             {" "}
             <BackgroundBox clicked={click}>
                 <ButtonAnimate clicked={click} onClick={handleClick}></ButtonAnimate>
-                {/* <img src={logoutGoob}/> */}
+                {/* <img src={loginGoob}/> */}
                 <Form className = "login" onSubmit={submitLogin}>
                     <Title>Sign In</Title>
                     <Input onChange={(e) => setUsername(e.target.value)} name="username" name="username" value={username} placeholder="Username"/>
