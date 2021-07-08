@@ -2,13 +2,15 @@ import React from 'react';
 import { Menu, Dropdown } from 'antd';
 import { MailOutlined, AppstoreOutlined, SettingOutlined, DownOutlined } from '@ant-design/icons';
 import { Route, Link, NavLink, Switch } from "react-router-dom";
+// import './Nav.css';
+import goobbueLogo from '../../assets/goobbueLogo.png';
 
-import Raids from '../../raids/Raids';
-import Trials from '../../trials/Trials';
-import Umbra from '../../raids/shadowbringers/Umbra'
-import Litany from '../../raids/shadowbringers/Litany'
-import Anamorphosis from '../../raids/shadowbringers/Anamorphosis';
-import Eternity from '../../raids/shadowbringers/Eternity';
+import Raids from '../raids/Raids';
+import Trials from '../trials/Trials';
+import Umbra from '../raids/shadowbringers/Umbra'
+import Litany from '../raids/shadowbringers/Litany'
+import Anamorphosis from '../raids/shadowbringers/Anamorphosis';
+import Eternity from '../raids/shadowbringers/Eternity';
 
 
 const { SubMenu } = Menu;
@@ -29,10 +31,22 @@ class Sitebar extends React.Component {
     return (
       
 
-      <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal">
-        <Menu.Item key="mail" icon={<MailOutlined />}>
-          About 
-        </Menu.Item>
+      <Menu  onClick={this.handleClick} selectedKeys={[current]} mode="horizontal">
+        <Menu.Item key="logo" >
+            <div>
+                <img src={goobbueLogo} alt="Goob Logo" width="70" height="70" />
+            </div>
+        </Menu.Item >
+        <Menu.Item key="about" >
+            <div>
+
+          <div>
+              <ul>
+                  <li><Link to='/'>About</Link></li>
+              </ul>
+              </div> 
+            </div>
+        </Menu.Item >
         <Menu.Item key="raids" >
             <div>
 
@@ -49,6 +63,16 @@ class Sitebar extends React.Component {
           <div>
               <ul>
                   <li><Link to='/trials'>Trials</Link></li>
+              </ul>
+              </div> 
+            </div>
+        </Menu.Item >
+        <Menu.Item key="mounts" >
+            <div>
+
+          <div>
+              <ul>
+                  <li><Link to='/mounts'>Mounts</Link></li>
               </ul>
               </div> 
             </div>
@@ -147,7 +171,7 @@ class Sitebar extends React.Component {
                     </div>
                 </div>
                 </Menu.Item> 
-                <Menu.Item key="setting:6">
+                <Menu.Item key="setting:7">
             <div>
                     <div>
                         <ul>
@@ -156,7 +180,7 @@ class Sitebar extends React.Component {
                     </div>
                 </div>
                 </Menu.Item> 
-                <Menu.Item key="setting:6">
+                <Menu.Item key="setting:8">
             <div>
                     <div>
                         <ul>
@@ -165,7 +189,7 @@ class Sitebar extends React.Component {
                     </div>
                 </div>
                 </Menu.Item> 
-                <Menu.Item key="setting:6">
+                <Menu.Item key="setting:9">
             <div>
                     <div>
                         <ul>

@@ -16,7 +16,7 @@ import {
 
 // import ProtectedRoute from "../RoleAuth/services/ProtectedRoute";
 import Logout from '../Logout/Logout';
-import About from '../../pages/About';
+import About from '../nav/NavSwitch';
 import Raids from '../raids/Raids';
 import Trials from '../trials/Trials';
 import Admin from '../../pages/AdminRoute';

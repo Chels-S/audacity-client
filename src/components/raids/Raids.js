@@ -1,12 +1,20 @@
 import React, {useState, useEffect, Component} from 'react';
+import { Card, Col, Row } from 'antd';
+import UmbraImage from '../../assets/umbraImage.png';
+import LitanyImage from '../../assets/litanyImage.png';
+import AnamorphosisImage from '../../assets/anamorphosisImage.png';
 import DisplayRaids from './RaidMap';
 // import RaidIndex from './RaidIndex';
 import {Container} from 'reactstrap';
+import Eternity from './shadowbringers/Eternity';
+import Anamorphosis from './shadowbringers/Anamorphosis';
+
 
 
 const Raids = props => {
     console.log(props);
-
+    
+    const { Meta } = Card;
     const [raids, setRaids] = useState([]);
 
 
@@ -81,8 +89,79 @@ const Raids = props => {
                             </tr>
                         )
                     })}
+                    {/* <Eternity raids={raids} /> */}
                 </tbody>
             </table>
+
+            {/* <Card
+    hoverable
+    style={{ width: 240 }}
+    cover={<img alt="example" src={UmbraImage} />}
+  >
+    <Meta title="Europe Street beat" description="www.instagram.com" />
+  </Card> */}
+
+
+            <Row gutter={16}>
+      <Col span={8}>
+      <Card
+    hoverable
+    // style={{ width: 240 }}
+    cover={<img alt="example" src={UmbraImage} />}
+  >
+    <Meta title="Europe Street beat" description="www.instagram.com" />
+  </Card>
+      </Col>
+      <Col span={8}>
+      <Card
+    hoverable
+    // style={{ width: 240 }}
+    cover={<img alt="example" src={LitanyImage} />}
+  >
+    <Meta title="Europe Street beat" description="www.instagram.com" />
+  </Card>
+      </Col>
+      <Col span={8}>
+      <Card
+    hoverable
+    // style={{ width: 240 }}
+    cover={<img alt="example" src={AnamorphosisImage} />}
+  >
+    <Meta title="Europe Street beat" description="www.instagram.com" />
+  </Card>
+      </Col>
+    </Row>
+    <br />
+
+    <Row gutter={16}>
+      <Col span={8}>
+      <Card
+    hoverable
+    // style={{ width: 240 }}
+    cover={<img alt="example" src={UmbraImage} />}
+  >
+    <Meta title="Europe Street beat" description="www.instagram.com" />
+  </Card>
+      </Col>
+      <Col span={8}>
+      <Card
+    hoverable
+    // style={{ width: 240 }}
+    cover={<img alt="example" src={LitanyImage} />}
+  >
+    <Meta title="Europe Street beat" description="www.instagram.com" />
+  </Card>
+      </Col>
+      <Col span={8}>
+      <Card
+    hoverable
+    // style={{ width: 240 }}
+    cover={<img alt="example" src={AnamorphosisImage} />}
+  >
+    <Meta title="Europe Street beat" description="www.instagram.com" />
+  </Card>
+      </Col>
+    </Row>
             
         </div>
     )

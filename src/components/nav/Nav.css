@@ -1,4 +1,13 @@
-ul {
+li {
+   color: red;
+}
+
+.menu {
+    color: blue;
+}
+
+
+/* ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -26,7 +35,7 @@ li a:hover {
 .logoPic {
     width: 100px;
     height: 100px;
-    /* object-fit: cover; */
+    object-fit: cover;
     border-radius: 25%;
 }
-
+ */

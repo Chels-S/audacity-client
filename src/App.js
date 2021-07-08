@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
 import Auth from './components/auth/Auth';
-import About from './pages/About';
+import About from './components/nav/NavBar';
+import {BrowserRouter as Router} from 'react-router-dom';
 // import Sitebar from './components/nav/Navbar';
 // import Sitebar from './components/nav/testing/TestNav';
-import Sidebar from './components/nav/Sidebar';
-import {BrowserRouter as Router} from 'react-router-dom';
-import ToggleComponent from './components/ToggleComponent';
+// import Sidebar from './components/nav/Sidebar';
+// import ToggleComponent from './components/ToggleComponent';
 
 
 
