@@ -1,5 +1,6 @@
 import React, {useState, useEffect, Component} from 'react';
 import { Card, Col, Row } from 'antd';
+import APIURL from '../../helpers/Environment';
 import UmbraImage from '../../assets/umbraImage.png';
 import LitanyImage from '../../assets/litanyImage.png';
 import AnamorphosisImage from '../../assets/anamorphosisImage.png';
@@ -20,7 +21,7 @@ const Raids = props => {
 
     
     const fetchRaids = async () => {
-        await fetch(`http://localhost:3005/raids`, {
+        await fetch(`${APIURL}/raids`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',

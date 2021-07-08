@@ -1,4 +1,5 @@
 import React, {useState, useEffect, Component} from 'react';
+import APIURL from '../../helpers/Environment';
 import {Container} from 'reactstrap';
 
 
@@ -11,7 +12,7 @@ const Trials = props => {
 
     
     const fetchTrials = async () => {
-        await fetch(`http://localhost:3005/trials`, {
+        await fetch(`${APIURL}/trials`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',
