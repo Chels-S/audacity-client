@@ -12,6 +12,19 @@ import Anamorphosis from './shadowbringers/Anamorphosis';
 
 
 
+// export default class RaidGuides extends Component {
+//   constructor(props){
+//     super(props);
+//     this.state={
+
+//     }
+//   }
+// }
+
+
+
+
+
 const Raids = props => {
     console.log(props);
     
@@ -87,30 +100,27 @@ const Raids = props => {
                                 <th>{raid.bossName}</th>
                                 <th>{raid.description}</th>
                                 <th>{raid.videoLink}</th>
-                            </tr>
-                        )
-                    })}
+                            
                     {/* <Eternity raids={raids} /> */}
-                </tbody>
-            </table>
+            
 
-            {/* <Card
+            <Card
     hoverable
     style={{ width: 240 }}
     cover={<img alt="example" src={UmbraImage} />}
   >
     <Meta title="Europe Street beat" description="www.instagram.com" />
-  </Card> */}
+  </Card>
 
 
             <Row gutter={16}>
       <Col span={8}>
       <Card
     hoverable
-    // style={{ width: 240 }}
-    cover={<img alt="example" src={UmbraImage} />}
+    style={{ width: 240 }}
+    cover={<img alt="example" src={raid.videoLink} />}
   >
-    <Meta title="Europe Street beat" description="www.instagram.com" />
+    <Meta title={raid.nameOfFight} description={raid.description} />
   </Card>
       </Col>
       <Col span={8}>
@@ -163,6 +173,11 @@ const Raids = props => {
   </Card>
       </Col>
     </Row>
+    </tr>
+                        )
+                    })}
+    </tbody>
+            </table>
             
         </div>
     )

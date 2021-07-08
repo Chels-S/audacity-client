@@ -7,7 +7,7 @@ const Eternity = (props) => {
     return (
         <div className= "eternityGuide">
             <h1>The savage guide for Eternity - Gaia</h1>
-            {/* {props.raids.map((raid, index)=>{
+            {props.raids.map((raid, index)=>{
                         return( 
                             <tr key={index}>
                                 <th scope="row">{raid.id}</th>
@@ -18,7 +18,7 @@ const Eternity = (props) => {
                                 <th>{raid.videoLink}</th>
                             </tr>
                         )
-                    })} */}
+                    })}
         </div>
        
     )
