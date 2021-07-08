@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
 import Auth from './components/auth/Auth';
-import About from './components/nav/NavBar';
+import NavBarTop from './components/nav/Navbar';
 import {BrowserRouter as Router} from 'react-router-dom';
 // import Sitebar from './components/nav/Navbar';
 // import Sitebar from './components/nav/testing/TestNav';
@@ -37,7 +37,7 @@ function App() {
 
   const protectedViews = () => {
     return sessionToken === localStorage.getItem('token') ?
-    <About sessionToken = {sessionToken} clickLogout={clearToken} /> :
+    <NavBarTop sessionToken = {sessionToken} clickLogout={clearToken} /> :
     <Auth updateToken={updateToken} />
   }
 
