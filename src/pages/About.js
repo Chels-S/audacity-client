@@ -1,20 +1,15 @@
-import React from 'react';
-import Sitebar from '../components/nav/Navbar';
-import Sidebar from '../components/nav/Sidebar';
-import {BrowserRouter as Router} from 'react-router-dom';
+import React, {useState, useEffect, Component} from 'react';
+import {Container} from 'reactstrap';
 
-function About(props) {
-    return(
-        <div>
-
-            <Router>
-                <Sidebar />
-            </Router>
-            
-            <h1>About page!</h1>
-            <p>This is the about page for Audacity!</p> 
+const About = () => {
+    return (
+        <div className="about">
+            <h1>This is the about page for Audacity!</h1>
+     
         </div>
+       
     )
 }
+
 
 export default About;

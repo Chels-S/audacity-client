@@ -1,20 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
 import Auth from './components/auth/Auth';
-import About from './pages/About';
-import Sitebar from './components/nav/Navbar';
-import Sidebar from './components/nav/Sidebar';
+import About from './components/nav/NavBar';
 import {BrowserRouter as Router} from 'react-router-dom';
-import ToggleComponent from './components/ToggleComponent';
+// import Sitebar from './components/nav/Navbar';
+// import Sitebar from './components/nav/testing/TestNav';
+// import Sidebar from './components/nav/Sidebar';
+// import ToggleComponent from './components/ToggleComponent';
+
+
+
+
 
 
 function App() {
 
-  // return (
-  //   <div>
-  //     <ToggleComponent />
-  //   </div>
-  // )
 
   const [sessionToken, setSessionToken] = useState('')
 
@@ -37,20 +37,19 @@ function App() {
 
   const protectedViews = () => {
     return sessionToken === localStorage.getItem('token') ?
-    <About sessionToken = {sessionToken} /> :
+    <About sessionToken = {sessionToken} clickLogout={clearToken} /> :
     <Auth updateToken={updateToken} />
   }
 
 
 
-
   return (
     <div className="App">
-      {/* <ToggleComponent /> */}
-      {/* <Router>
-        <Sidebar />
-      </Router> */}
-      <Sitebar clickLogout={clearToken} />
+      <Router>
+      {/* <Sidebar clickLogout={clearToken} /> */}
+      {/* <Sitebar /> */}
+
+      </Router>
       {/* <h1>Audacity Guides!</h1> */}
       {protectedViews()}
     </div>

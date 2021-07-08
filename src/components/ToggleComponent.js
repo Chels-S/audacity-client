@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import loginGoob from '../assets/loginGoob.png';
+import './Toggle.css';
 import styled, { keyframes } from 'styled-components';
 
 
@@ -12,18 +13,19 @@ const move = keyframes `
 }
 `;
 const BackgroundBox = styled.div`
-background-color: #beeefb;
+background-color: #efc7c2;
 height: 50vh;
-width: 50%;
+width: 40%;
 
 display: flex;
 justify-content: center;
 align-items: center;
-margin: 15rem auto;
+margin: 13rem auto;
+margin-left: 55%;
 
 position: relative;
 border-radius: 23px;
-border: 1px solid #053271;
+border: 1px solid #bfd3c1;
 
 
 .registerTransfer {
@@ -60,7 +62,7 @@ border: 1px solid #053271;
 }
 `;
 const BoxOne = styled.div`
-background-color: #f1fdcd;
+background-color: #ffe5d4;
 width: 50%;
 height: 100%;
 position: absolute;
@@ -76,7 +78,7 @@ transition: transform 1s;
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: #f1fdcd;
+    background-color: #ffe5d4;
 
     z-index: -200%
 }
@@ -84,18 +86,18 @@ transition: transform 1s;
 &::before {
     top: 3rem;
     border-radius: 23px;
-    border: 4px solid #053271;
+    border: 4px solid #bfd3c1;
 }
 
 &::after {
     bottom: 3rem;
     border-radius: 23px 23px 0 0;
-    border-right: 4px solid #053271;
-    border-left: 4px solid #053271;
+    border-right: 4px solid #bfd3c1;
+    border-left: 4px solid #bfd3c1;
 }
 `;
 const BoxTwo = styled.div`
-background-color: #053271;
+background-color: #bfd3c1;
 width: 45%;
 height: 100%;
 position: absolute;
@@ -112,7 +114,7 @@ border-radius: ${props => props.clicked ? "23px 0 0 23px": "0 23px 23px 0"};
 
 `;
 const Form = styled.form`
-color: #1b1b1b;
+color: #1e1e24;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -124,7 +126,7 @@ padding: 0 4rem;
 const Input = styled.input`
 background-color: #fff;
 border: none;
-border-bottom: 2px solid #053271;
+border-bottom: 2px solid #bfd3c1;
 
 
 padding: 1rem 2rem;
@@ -134,7 +136,7 @@ width: 100%;
 &:focus {
     outline: none;
     border: none;
-    border: 2px solid #053271;
+    border: 2px solid #bfd3c1;
 
 }
 `;
@@ -142,8 +144,8 @@ const Button = styled.button `
 border-radius: 3px;
 padding: 1rem 3.5rem;
 margin-top: 1rem;
-border: 1px solid black;
-background-color: black;
+border: 1px solid #1e1e24;
+background-color: #1e1e24;
 color: #fff;
 text-transform: uppercase;
 cursor:pointer;
@@ -156,7 +158,7 @@ box-shadow: 0 7px #999;
 }
 
 &:active {
-    background-color: black;
+    background-color: #1e1e24;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
@@ -169,6 +171,7 @@ box-shadow: 0 7px #999;
 const Title = styled.h1 `
 font-size: 3.5rem;
 margin-bottom: 2rem;
+color: #1e1e24;
 `
 const Link = styled.a `
 text-decoration: none;
@@ -185,14 +188,14 @@ top: 70%;
 border: none;
 cursor: pointer;
 
-right: ${(props) => (props.clicked ? "52%" : "42%") };
+right: ${(props) => (props.clicked ? "54%" : "45%") };
 transform: ${(props) => (props.clicked ? "rotate(360deg)" : "rotate(0)") };
 transition: all 1.5s;
 
 background-color: transparent;
 
 &::before {
-    content: "🐙";
+    content: url(loginGoob) ;
     font-size: 4rem;
 }
 
@@ -207,15 +210,17 @@ font-size: 1.5rem;
 display: flex;
 flex-direction: column;
 letter-spacing: 0.2rem;
-color: #fff;
+color: #8A4F7D;
+
 
 .attention {
     font-size: 2.5rem;
     position: relative;
     margin-top: 2rem;
+
 }
 
-.attention-icon {
+.attention-icon-register, .attention-icon-login {
     position: absolute;
     right: ${(props) => (props.clicked ? "0" : "none")};
     top: 100%;
@@ -265,20 +270,19 @@ const ToggleComponent = (props) => {
         <div>
             {" "}
             <BackgroundBox clicked={click}>
-                <ButtonAnimate clicked={click} onClick={handleClick}></ButtonAnimate>
-                {/* <img src={loginGoob}/> */}
+                <ButtonAnimate clicked={click} onClick={handleClick}><img src={loginGoob}/></ButtonAnimate>
                 <Form className = "login" onSubmit={submitLogin}>
                     <Title>Sign In</Title>
-                    <Input onChange={(e) => setUsername(e.target.value)} name="username" name="username" value={username} placeholder="Username"/>
-                    <Input onChange={(e) => setPassword(e.target.value)} name="password" value={password} placeholder="Password"/>
+                    <Input type="username" onChange={(e) => setUsername(e.target.value)} name="username" name="username" value={username} placeholder="Username"/>
+                    <Input type= "password" onChange={(e) => setPassword(e.target.value)} name="password" value={password} placeholder="Password"/>
                     <Link href="#" >Forgot your Password?</Link>
                     <Button type="submit">Login</Button>
                 </Form>
                 <Form className="register" onSubmit={submitRegister}>
                     <Title>Register</Title>
                     <Input onChange={(e) => setCharacterName(e.target.value)} name="characterName" value={characterName} placeholder="Character Name"/>
-                    <Input onChange={(e)=> setUsername(e.target.value)} name="username" value={username} placeholder="Username"/>
-                    <Input onChange={(e) => setPassword(e.target.value) } name="password" value={password} placeholder="Password"/>
+                    <Input type="username" onChange={(e)=> setUsername(e.target.value)} name="username" value={username} placeholder="Username"/>
+                    <Input type="password" onChange={(e) => setPassword(e.target.value) } name="password" value={password} placeholder="Password"/>
                     <Link href="#" onClick={handleClick}>Already have an Account?</Link>
                     <Button type="submit"> Sign Up</Button>
                 </Form>
@@ -287,15 +291,15 @@ const ToggleComponent = (props) => {
                     <h1>Welcome! </h1>
                     Don't have an account?
                     <br />
-                    <span className="attention">Click on the octopus</span>
-                    <span className="attention-icon">⤶</span>
+                    <span className="attention">Click on the Goobbue</span>
+                    <span className="attention-icon-register">⤶</span>
                 </Text>
                 <Text className="loginTransfer">
                     <h1>Hi There! </h1>
                     Already have an account?
                     <br />
-                    <span className="attention">Click on the octopus</span>
-                    <span className="attention-icon">⤷</span>
+                    <span className="attention">Click on the Goobue</span>
+                    <span className="attention-icon-login">⤷</span>
                 </Text>
                 
                 

@@ -1,0 +1,28 @@
+body{
+    background-image: url("../assets/landingBG.png");
+}
+
+.registerTransfer {
+    margin-right: 15%;
+}
+
+.loginTransfer {
+    margin-left: 15%;
+}
+
+.attention-icon-register {
+    margin-left: 90%;
+
+}
+
+.login {
+    margin-left: 5%;
+
+}
+
+.register {
+    margin-right: 5%
+}
+
+
+
