@@ -1,5 +1,5 @@
-import React, {useState, useEffect, Component} from 'react';
-import {Container} from 'reactstrap';
+import React, {Component} from 'react';
+
 
 const About = () => {
     return (

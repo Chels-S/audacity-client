@@ -1,16 +1,16 @@
 import React from 'react';
-import { Menu, Dropdown } from 'antd';
-import { MailOutlined, AppstoreOutlined, SettingOutlined, DownOutlined } from '@ant-design/icons';
-import { Route, Link, NavLink, Switch } from "react-router-dom";
+import { Menu } from 'antd';
+import {DownOutlined } from '@ant-design/icons';
+import {Link} from "react-router-dom";
 // import './Nav.css';
 import goobbueLogo from '../../assets/goobbueLogo.png';
 
-import Raids from '../raids/Raids';
-import Trials from '../trials/Trials';
-import Umbra from '../raids/shadowbringers/Umbra'
-import Litany from '../raids/shadowbringers/Litany'
-import Anamorphosis from '../raids/shadowbringers/Anamorphosis';
-import Eternity from '../raids/shadowbringers/Eternity';
+// import Raids from '../raids/Raids';
+// import Trials from '../trials/Trials';
+// import Umbra from '../raids/shadowbringers/Umbra'
+// import Litany from '../raids/shadowbringers/Litany'
+// import Anamorphosis from '../raids/shadowbringers/Anamorphosis';
+// import Eternity from '../raids/shadowbringers/Eternity';
 
 
 const { SubMenu } = Menu;
@@ -22,7 +22,7 @@ class Sitebar extends React.Component {
     };
  
   handleClick = e => {
-    console.log('click ', e);
+    // console.log('click ', e);
     this.setState({ current: e.key });
   };
 

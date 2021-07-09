@@ -1,5 +1,5 @@
-import React, {useState, useEffect, Component} from 'react';
-import {Container} from 'reactstrap';
+import React from 'react';
+
 
 const Eternity = (props) => {
     console.log(props);

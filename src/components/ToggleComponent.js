@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import loginGoob from '../assets/loginGoob.png';
+import APIURL from '../helpers/Environment';
 import './Toggle.css';
 import styled, { keyframes } from 'styled-components';
 
@@ -239,7 +240,7 @@ const ToggleComponent = (props) => {
 
     const submitLogin = (event) => {
         event.preventDefault();
-        fetch('http://localhost:3005/user/login', {
+        fetch(`${APIURL}/user/login`, {
             method: 'POST',
             body: JSON.stringify({username: username, password: password}),
             headers: new Headers ({
@@ -254,7 +255,7 @@ const ToggleComponent = (props) => {
 
     const submitRegister =(event) => {
         event.preventDefault();
-        fetch('http://localhost:3005/user/register', {
+        fetch(`${APIURL}/user/register`, {
             method: 'POST',
             body: JSON.stringify({characterName: characterName, username: username, password: password}),
             headers: new Headers ({
