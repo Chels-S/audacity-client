@@ -19,7 +19,7 @@ import Logout from '../Logout/Logout';
 import About from '../nav/NavSwitch';
 import Raids from '../raids/Raids';
 import Trials from '../trials/Trials';
-import Admin from '../../pages/AdminRoute';
+import Admin from '../../pages/Admin.tsx';
 import Mounts from '../../pages/Mounts';
 
 

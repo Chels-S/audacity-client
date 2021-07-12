@@ -18,6 +18,8 @@ import RubyWeapon from '../trials/shadowbringers/RubyWeapon';
 import EmeraldWeapon from '../trials/shadowbringers/EmeraldWeapon';
 import DiamondWeapon from '../trials/shadowbringers/DiamondWeapon';
 import AudacMounts from '../../pages/Mounts';
+import AllGuides from '../../pages/Admin';
+import CreateGuide from '../trials/CreateTrial';
 
 function NavBar(props) {
     return(
@@ -29,6 +31,8 @@ function NavBar(props) {
                 <Switch>
                     <Route exact path='/'><About /></Route>
                     <Route exact path='/mounts'><AudacMounts /></Route>
+                    <Route exact path='/admin'><AllGuides sessionToken={props.sessionToken} /></Route>
+                    <Route exact path='/trials/create'><CreateGuide /></Route>
                     <Route exact path='/raids'><Raids sessionToken={props.sessionToken}/></Route>
                     <Route exact path='/trials'><Trials sessionToken={props.sessionToken} /></Route>
                     <Route exact path='/raids/umbra'><Umbra /></Route>

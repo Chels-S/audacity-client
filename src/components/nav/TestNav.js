@@ -47,39 +47,11 @@ class Sitebar extends React.Component {
               </div> 
             </div>
         </Menu.Item >
-        <Menu.Item key="raids" >
-            <div>
 
-          <div>
-              <ul>
-                  <li><Link to='/raids'>Raids</Link></li>
-              </ul>
-              </div> 
-            </div>
-        </Menu.Item >
-        <Menu.Item key="trials" >
-            <div>
-
-          <div>
-              <ul>
-                  <li><Link to='/trials'>Trials</Link></li>
-              </ul>
-              </div> 
-            </div>
-        </Menu.Item >
-        <Menu.Item key="mounts" >
-            <div>
-
-          <div>
-              <ul>
-                  <li><Link to='/mounts'>Mounts</Link></li>
-              </ul>
-              </div> 
-            </div>
-        </Menu.Item >
-
-
-        <SubMenu key="RaidSubMenu" icon={<DownOutlined />} title="Raids">
+        <SubMenu key="RaidSubMenu" title={<Link to='/raids'>Raids</Link>}>
+        {/* <Menu.ItemGroup title="All">
+            <Menu.Item key="setting:20"><Link to='/raids'>Raids</Link></Menu.Item>
+          </Menu.ItemGroup> */}
           <Menu.ItemGroup title="Stormblood">
             <Menu.Item key="setting:1">Omegascape 1</Menu.Item>
             <Menu.Item key="setting:2">Omegascape 2</Menu.Item>
@@ -128,7 +100,7 @@ class Sitebar extends React.Component {
          </SubMenu  >
 
 
-        <SubMenu key="TrialSubMenu" icon={<DownOutlined />} title="Trials">
+        <SubMenu key="TrialSubMenu"  title={<Link to='/trials'>Trials</Link>}>
           <Menu.ItemGroup title="Stormblood">
             <Menu.Item key="setting:1">Susano</Menu.Item>
             <Menu.Item key="setting:2">Lakshmi</Menu.Item>
@@ -202,8 +174,27 @@ class Sitebar extends React.Component {
           </Menu.ItemGroup>
           
          </SubMenu >
+        <Menu.Item key="admin" >
+            <div>
 
-         <Menu.Item key="logout" >
+          <div>
+              <ul>
+                  <li><Link to='/admin'>Admin</Link></li>
+              </ul>
+              </div> 
+            </div>
+        </Menu.Item >
+        <Menu.Item key="mounts" >
+            <div>
+
+          <div>
+              <ul>
+                  <li><Link to='/mounts'>Mounts</Link></li>
+              </ul>
+              </div> 
+            </div>
+        </Menu.Item >
+        <Menu.Item key="logout" >
             <div>
 
           <div>
