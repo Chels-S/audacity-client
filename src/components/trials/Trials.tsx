@@ -130,11 +130,11 @@ export default class TrialGuides extends Component <AcceptedProps, TrialState> {
     cover={<img alt="example" src={UmbraImage} />}
   >
           {/* <h3 >{trial.id}</h3> */}
-          <h3>{trial.expansion}</h3>
-          <h3>{trial.nameOfFight}</h3>
           <h3>{trial.bossName}</h3>
+          <h3>{trial.nameOfFight}</h3>
+          <h3>{trial.expansion}</h3>
           <h3>{trial.description}</h3>
-          <h3>{<Link to={`/trials/${trial.nameOfFight}`}>View Guide</Link>}</h3>
+          <h3>{<Link to={`/trials/${trial.bossName}`}>View Guide</Link>}</h3>
 
   </Card>
       </Col>

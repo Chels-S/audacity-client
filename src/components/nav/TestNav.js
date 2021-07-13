@@ -138,7 +138,7 @@ class Sitebar extends React.Component {
             <div>
                     <div>
                         <ul>
-                            <li><Link to='/trials/seatofsacrifice'>Seat of Sacrifice</Link></li>
+                            <li><Link to='/trials/wol'>Seat of Sacrifice</Link></li>
                         </ul>
                     </div>
                 </div>

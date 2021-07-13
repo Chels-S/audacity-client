@@ -18,6 +18,9 @@ display: flex;
 flex-wrap: wrap;
 
 `
+const BackgroundBox = styled.div `
+background-color: pink;
+`
 
 type AcceptedProps = {
 
@@ -104,9 +107,9 @@ export default class RaidGuides extends Component <AcceptedProps, RaidState> {
     cover={<img alt="example" src={raid.videoLink} />}
   >
           {/* <h3 >{raid.id}</h3> */}
-          <h3>{raid.expansion}</h3>
           <h3>{raid.nameOfFight}</h3>
           <h3>{raid.bossName}</h3>
+          <h3>{raid.expansion}</h3>
           <h3>{raid.description}</h3>
           <h3>{<Link to={`/raids/${raid.nameOfFight}`}>View Guide</Link>}</h3>
 

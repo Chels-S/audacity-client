@@ -42,7 +42,7 @@ function NavBar(props) {
                     <Route exact path='/trials/titania'><Titania /></Route>
                     <Route exact path='/trials/innocence'><Innocence /></Route>
                     <Route exact path='/trials/hades'><Hades /></Route>
-                    <Route exact path='/trials/seatofsacrifice'><SeatOfSacrifice /></Route>
+                    <Route exact path='/trials/wol'><SeatOfSacrifice /></Route>
                     <Route exact path='/trials/ruby'><RubyWeapon /></Route>
                     <Route exact path='/trials/emerald'><EmeraldWeapon /></Route>
                     <Route exact path='/trials/diamond'><DiamondWeapon /></Route>
