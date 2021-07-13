@@ -1,152 +1,119 @@
 import React, {Component} from 'react';
+import { Card, Col, Row, Modal, Button, Form, Input, Table, Tag, Space  } from 'antd';
+import APIURL from '../../helpers/Environment';
 
-// type AcceptedProps ={
-//     guideEdit: {
-//         expansion: string,
-//         nameOfFight: string,
-//         bossName: string,
-//         description: string,
-//         videoLink: string
-//     }
-// }
+type AcceptedProps = {
+    fetchTrials: () => void
+}
 
-// type GuideEditState = {
-//     expansion: string,
-//     nameOfFight: string,
-//     bossName: string,
-//     description: string,
-//     videoLink: string
-// }
+type TrialState = {
+    id: number
+    expansion: string,
+    nameOfFight: string,
+    bossName: string,
+    description: string,
+    videoLink: string,
+    loading: boolean,
+    visible: boolean,
 
-// export default class GuideEdit extends Component <AcceptedProps, GuideEditState>{
-//     constructor(props: AcceptedProps){
-//         super(props)
-//         this.state={
-//             expansion: props.trialEdit.expansion,
-//             nameOfFight: props.trialEdit.nameOfFight,
-//             bossName: props.trialEdit.bossName,
-//             description: props.trialEdit.description,
-//             videoLink: props.trialEdit.videoLink
-//         }
-//     }
-// }
+    allTrials: [{
+        
+        id: number,
+        expansion: string,
+        nameOfFight: string,
+        bossName: string,
+        description: string,
+        videoLink: string
+      }],
+}
 
-// import { Modal, Button } from 'antd';
+export default class TrialEdit extends Component<AcceptedProps, TrialState> {
+    constructor(props: AcceptedProps){
+        super(props)
+        this.state={
+            id: 0,
+            expansion: '',
+            nameOfFight: '',
+            bossName: '',
+            description: '',
+            videoLink: '',
+            loading: false,
+            visible: false,
+            allTrials: [{
+                id: 0,
+                expansion: '',
+                nameOfFight: '',
+                bossName: '',
+                description: '',
+                videoLink: ''
+          }],
+        }
+        this.editTrial = this.editTrial.bind(this)
 
-// class App extends React.Component {
-//   state = {
-//     loading: false,
-//     visible: false,
-//   };
+    }
 
-//   showModal = () => {
-//     this.setState({
-//       visible: true,
-//     });
-//   };
+    handleCancel(){
+        this.setState({visible:false});
+      };
 
-//   handleOk = () => {
-//     this.setState({ loading: true });
-//     setTimeout(() => {
-//       this.setState({ loading: false, visible: false });
-//     }, 3000);
-//   };
+    showModal() {
+        this.setState({
+          visible: true,
+        })
+      }
 
-//   handleCancel = () => {
-//     this.setState({ visible: false });
-//   };
 
-//   render() {
-//     const { visible, loading } = this.state;
-//     return (
-//       <>
-//         <Button type="primary" onClick={this.showModal}>
-//           Open Modal with customized footer
-//         </Button>
-//         <Modal
-//           visible={visible}
-//           title="Title"
-//           onOk={this.handleOk}
-//           onCancel={this.handleCancel}
-//           footer={[
-//             <Button key="back" onClick={this.handleCancel}>
-//               Return
-//             </Button>,
-//             <Button key="submit" type="primary" loading={loading} onClick={this.handleOk}>
-//               Submit
-//             </Button>,
-//             <Button
-//               key="link"
-//               href="https://google.com"
-//               type="primary"
-//               loading={loading}
-//               onClick={this.handleOk}
-//             >
-//               Search on Google
-//             </Button>,
-//           ]}
-//         >
-//           <p>Some contents...</p>
-//           <p>Some contents...</p>
-//           <p>Some contents...</p>
-//           <p>Some contents...</p>
-//           <p>Some contents...</p>
-//         </Modal>
-//       </>
-//     );
-//   }
-// }
+    editTrial(trial:any){
+        // event.preventDefault()
+        fetch(`${APIURL}/trials/edit/${trial}`, {
+            method: 'PUT',
+            body: JSON.stringify({
+                expansion: this.state.expansion,
+                nameOfFight: this.state.nameOfFight,
+                bossName: this.state.nameOfFight,
+                description: this.state.description,
+                videoLink: this.state.videoLink
+            }),
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'Authorization': localStorage.token
+            })
+        })
+        .then(res => console.log(res))
+        .catch(error => console.log(error))
+        .then(this.props.fetchTrials)
+        setTimeout(() => {
+            this.setState({ loading: false, visible: false});
+          }, 3000)
 
-// ReactDOM.render(<App />, mountNode);
+    }
 
-// import React, { useState } from 'react';
-// import { Modal, Button } from 'antd';
 
-// const App = () => {
-//   const [isModalVisible, setIsModalVisible] = useState(false);
+    render(){
+        const {visible, loading} = this.state;
+        return(
+            <div>
+                <Button type="primary" onClick={this.showModal}>
+                    Edit Trial
+                </Button>
+                <Modal 
+                visible = {visible}
+                    title= "Edit Trial"
+                    onOk={this.editTrial}
+                    onCancel={this.handleCancel}
+                >
+                    <Form>
+                        <Form.Item
+                            name={['expansion']}
+                            label="Expansion"
+                        >
+                            <Input type="text" value={this.state.expansion} placeholder="Expansion" onChange={(event) => this.setState({expansion: event.target.value})} />
 
-//   const showModal = () => {
-//     setIsModalVisible(true);
-//   };
+                        </Form.Item>
+                    </Form>
+                </Modal>
+            </div>
+        )
+    }
 
-//   const handleOk = () => {
-//     setIsModalVisible(false);
-//   };
-
-//   const handleCancel = () => {
-//     setIsModalVisible(false);
-//   };
-
-//   return (
-//     <>
-//       <Button type="primary" onClick={showModal}>
-//         Open Modal
-//       </Button>
-//       <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-//         <p>Some contents...</p>
-//         <p>Some contents...</p>
-//         <p>Some contents...</p>
-//       </Modal>
-//     </>
-//   );
-// };
-
-// ReactDOM.render(<App />, mountNode);8
-// import { Space, Card } from 'antd';
-
-// function SpaceVertical() {
-//   return (
-//     <Space direction="vertical">
-//       <Card title="Card" style={{ width: 300 }}>
-//         <p>Card content</p>
-//         <p>Card content</p>
-//       </Card>
-//       <Card title="Card" style={{ width: 300 }}>
-//         <p>Card content</p>
-//         <p>Card content</p>
-//       </Card>
-//     </Space>
-//   );
-// }
-
-// ReactDOM.render(<SpaceVertical />, mountNode);
+}

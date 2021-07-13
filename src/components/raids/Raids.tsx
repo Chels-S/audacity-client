@@ -104,7 +104,7 @@ export default class RaidGuides extends Component <AcceptedProps, RaidState> {
       <Card
     hoverable
     style={{ width: 600 }}
-    cover={<img alt="example" src={raid.videoLink} />}
+    cover={<img alt="example" src={UmbraImage} />}
   >
           {/* <h3 >{raid.id}</h3> */}
           <h3>{raid.nameOfFight}</h3>
